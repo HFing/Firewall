@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Log Firewall</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-5">
+  <h2>📜 Log Firewall (Real-time từ CloudWatch)</h2>
+ <a href="/dashboard" class="btn btn-secondary mt-4">← Quay lại Trang chính</a>
+  <table class="table table-striped table-bordered mt-4">
+    <thead>
+      <tr>
+        <th>Thời gian</th>
+        <th>Source IP</th>
+        <th>Dest IP</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for log in logs %}
+      <tr>
+        <td>{{ log.timestamp }}</td>
+        <td>{{ log.src_ip }}</td>
+        <td>{{ log.dest_ip }}</td>
+        <td>{{ log.action }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+
+</div>
+</body>
+</html>
